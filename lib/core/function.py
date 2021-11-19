@@ -96,9 +96,9 @@ def train(config, train_loader, model, criterion, optimizer, epoch,
 
 def validate(config, val_loader, val_dataset, model, criterion, output_dir,
              tb_log_dir, writer_dict=None):
-    batch_time = AverageMeter()
-    losses = AverageMeter()
-    acc = AverageMeter()
+    # batch_time = AverageMeter()
+    # losses = AverageMeter()
+    # acc = AverageMeter()
 
     # switch to evaluate mode
     model.eval()
@@ -144,18 +144,18 @@ def validate(config, val_loader, val_dataset, model, criterion, output_dir,
 
                 output = (output + output_flipped) * 0.5
 
-            target = target.cuda(non_blocking=True)
-            target_weight = target_weight.cuda(non_blocking=True)
+            # target = target.cuda(non_blocking=True)
+            # target_weight = target_weight.cuda(non_blocking=True)
 
-            loss = criterion(output, target, target_weight)
+            # loss = criterion(output, target, target_weight)
 
             num_images = input.size(0)
             # measure accuracy and record loss
-            losses.update(loss.item(), num_images)
-            _, avg_acc, cnt, pred = accuracy(output.cpu().numpy(),
-                                             target.cpu().numpy())
+            # losses.update(loss.item(), num_images)
+            # _, avg_acc, cnt, pred = accuracy(output.cpu().numpy(),
+            #                                  target.cpu().numpy())
 
-            acc.update(avg_acc, cnt)
+            # acc.update(avg_acc, cnt)
 
             # measure elapsed time
             batch_time.update(time.time() - end)

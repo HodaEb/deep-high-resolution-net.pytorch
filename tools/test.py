@@ -109,6 +109,8 @@ def main():
     valid_dataset = eval('dataset.'+cfg.DATASET.DATASET)(
         cfg, cfg.DATASET.ROOT, cfg.DATASET.TEST_SET, False,
         transforms.Compose([
+            # ino ezafe krdm ke ghalate chon be bbox niaz dare
+            # transforms.Resize((256,256)),
             transforms.ToTensor(),
             normalize,
         ])
